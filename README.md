@@ -1,14 +1,9 @@
-# kali
+apt-get update
 
-sudo tee -a /etc/apt/sources.list<<EOF
-deb http://http.kali.org/kali kali-rolling main non-free contrib
-deb-src http://http.kali.org/kali kali-rolling main non-free contrib
-EOF
-                                       
-                                       
-                                       # See https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/
-deb http://http.kali.org/kali kali-rolling main contrib non-free
+echo "deb http://http.kali.org/kali kali-rolling main non-free contrib" | sudo tee /etc/apt/sources.list
 
-# Additional line for source packages
-# deb-src http://http.kali.org/kali kali-rolling main contrib non-free
+echo "deb-src http://http.kali.org/kali kali-rolling main non-free contrib" | sudo tee /etc/apt/sources.list
 
+gpg --keyserver hkp://keys.gnupg.net --recv-key ED444FF07D8D0BF6
+
+gpg -a --export ED444FF07D8D0BF6 | apt-key add -
